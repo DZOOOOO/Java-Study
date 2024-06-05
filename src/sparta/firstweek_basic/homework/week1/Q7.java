@@ -1,4 +1,4 @@
-package sparta.firstweek_basic.homework;
+package sparta.firstweek_basic.homework.week1;
 
 import java.io.*;
 import java.util.HashMap;
