@@ -6,8 +6,8 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
 
-
         br.close();
         bw.close();
     }
+
 }
