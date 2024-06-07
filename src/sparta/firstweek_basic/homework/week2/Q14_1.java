@@ -1,7 +1,9 @@
-import java.io.*;
-import java.util.Arrays;
+package sparta.firstweek_basic.homework.week2;
 
-public class Main {
+import java.io.*;
+
+// 2805번: 나무 자르기 --> 시간 초과
+public class Q14_1 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -11,40 +13,33 @@ public class Main {
         int needN = Integer.parseInt(input[1]);
         String[] numbers = br.readLine().split(" ");
 
-        int[] heights = new int[n];
+        int avg = 0;
+        int sum = 0;
         for (int i = 0; i < n; i++) {
-            heights[i] = Integer.parseInt(numbers[i]);
+            sum += Integer.parseInt(numbers[i]);
         }
+        avg = sum / n;
 
-        // 높이 배열을 정렬
-        Arrays.sort(heights);
-
-        int low = 0;
-        int high = heights[n - 1];
         int result = 0;
-
-        // 이분 탐색 시작
-        while (low <= high) {
-            // 중간값 구하기.
-            int mid = (low + high) / 2;
-            long minHeightSum = 0;
-
+        while (true) {
+            int minHeightSum = 0;
             for (int i = 0; i < n; i++) {
-                // 양수인 경우만 더해준다.
-                if (heights[i] > mid) {
-                    minHeightSum += heights[i] - mid;
+                int number = Integer.parseInt(numbers[i]);
+                int min = number - avg;
+                if (min > 0) {
+                    minHeightSum += min;
                 }
             }
-
             if (minHeightSum >= needN) {
-                result = mid;
-                low = mid + 1;
+                result = avg;
+                break;
             } else {
-                high = mid - 1;
+                avg++;
             }
         }
 
         bw.write(result + "\n");
+
 
         br.close();
         bw.close();
