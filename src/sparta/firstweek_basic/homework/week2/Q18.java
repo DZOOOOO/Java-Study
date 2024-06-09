@@ -1,6 +1,11 @@
+package sparta.firstweek_basic.homework.week2;
+
 import java.io.*;
 
-public class Main {
+// 11899번: 괄호 끼워넣기
+// 메모리: 15884KB
+// 속도: 144MS
+public class Q18 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
